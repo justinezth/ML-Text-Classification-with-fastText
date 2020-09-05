@@ -17,16 +17,22 @@ There was a lot of cleaning that needed to be done to the dataset because not on
 I then created a new column for categories as integers by mapping each category to a number because it's easier to work with. 
 
 These are the mappings from category to integer:
+
 ![data](pics/mapping.jpeg)
+
 These are the first 5 lines of the new dataframe with the numbered categories:
+
 ![data](pics/data2.jpeg)
 
 ### Formatting for fastText
 The format of the text that goes into a fastText is a series/list of strings, with each element including an item name and its respective labels in one string. All the labels/categories in fastText start by the "\_\_label\_\_" prefix, which is how fastText recognize what is a label or what is a word. The model is then trained to predict the labels given the word in the document. So now I will add \_\_label\_\_ in front of the category for fastText to read it as a label and then combine the labels and words into a single string. I believe fastText has its labels formatted this way because this then this model would work even if the products belonged to multiple categories/labels.
 
 Added "\_\_label\_\_" in front of the category_index:
+
 ![data](pics/data3.jpeg)
+
 Combined each product name with their label and put them into a series:
+
 ![data](pics/formatted.jpeg)
 
 ### Model
